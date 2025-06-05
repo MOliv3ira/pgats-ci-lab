@@ -25,7 +25,7 @@ jobs:
 
       # INSTALAÇÃO DO NODE
       - uses: actions/setup-node@v4
-        wifh:
+        with:
           node-version: 22.x
 
       # INSTALAÇÃO DO YARN
