@@ -1,13 +1,16 @@
-#CI DE NÍVEL 01 - DISPARO MANUALMENTE
+#CI DE NÍVEL 03 - DISPARO APÓS A CONCLUSÃO DE UM PIPELINE
 
 # NOME DO 'PIPELINE'
-name: 'Execução Manual'
+name: 'Execução por Deploy'
 
 # REGRAS DE DISPARO (GATILHOS/TRIGGERS)
-# GATILHO DE exec manual = workflow_dispatch
+# GATILHO DE exec A PARTIR DE OUTRO PIPELINE = workflow_run
 
 on:
-  workflow_dispatch:
+  workflow_run:
+    workflows: ['Execução Manual']
+    types:
+      - completed
 
 
 #TRABALHOS/TAREFAS DENTRO DO PIPELINE = jobs

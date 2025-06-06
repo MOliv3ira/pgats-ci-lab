@@ -4,7 +4,7 @@
 name: 'Execução Agendada'
 
 # REGRAS DE DISPARO (GATILHOS/TRIGGERS)
-# GATILHO DE exec manual = workflow_dispatch
+# GATILHO DE exec agendada = schedule
 
 on:
   schedule:
