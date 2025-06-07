@@ -21,6 +21,9 @@ jobs:
     #MAQUINA QUE O JOB/PIPELINE VAI EXECUTAR
     runs-on: ubuntu-latest
 
+    # condicional para executar o job apenas se o workflow anterior foi bem-sucedido
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
 
     # PASSOS DO SCRIPT DE BUILD
     steps:
