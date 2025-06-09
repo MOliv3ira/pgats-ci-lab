@@ -28,6 +28,7 @@ jobs:
 
   unidade:
     runs-on: ubuntu-latest
+    needs: [inspecao] # Dependência do job de inspeção
 
     steps:
       - uses: actions/checkout@v4
@@ -45,6 +46,8 @@ jobs:
 
   e2e-tests:
     runs-on: ubuntu-latest
+    needs: [inspecao] # Dependência do job de inspeção
+
     steps:
       # clone do projeto
       - uses: actions/checkout@v4
@@ -77,6 +80,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    needs: [unidade, e2e-tests]
 
     steps:
       - name: Simulando Deploy
