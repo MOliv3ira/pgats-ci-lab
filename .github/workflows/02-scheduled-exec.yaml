@@ -10,19 +10,15 @@ on:
   schedule:
     - cron: '0 6 * * 6'
 
-
 #TRABALHOS/TAREFAS DENTRO DO PIPELINE = jobs
 
 jobs:
   e2e-tests:
-
     #MAQUINA QUE O JOB/PIPELINE VAI EXECUTAR
     runs-on: ubuntu-latest
 
-
     # PASSOS DO SCRIPT DE BUILD
     steps:
-
       # CLONE DO PROJETO
       - uses: actions/checkout@v4
 
@@ -35,18 +31,14 @@ jobs:
       - name: Instalando Yarn
         run: npm install -g yarn
 
-
-       # INSTALAÇÃO DAS DEPENDÊNCIAS
+        # INSTALAÇÃO DAS DEPENDÊNCIAS
       - name: Instalando Dependências
         run: yarn
 
       # Instalação Playwright
       - name: Instalando Playwright
         run: yarn playwright install
-      
+
       # Executando os testes e2e
       - name: Executando os Testes E2E
-        run: yarn run e2e 
-
-
-
+        run: yarn run e2e
